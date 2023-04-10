@@ -1,0 +1,49 @@
+The @Value annotation is used to inject values into fields in Spring applications. Here are the usage examples:
+
+Injecting a string value directly from the annotation to the field:
+@Value("string value")
+private String stringValue;
+
+Injecting a value from a properties file:
+
+
+@Value("${value.from.file}")
+private String valueFromFile;
+
+Injecting a value from a system property:
+
+
+@Value("${systemValue}")
+private String systemValue;
+
+
+Providing default values for properties that might not be defined:
+
+
+@Value("${unknown.param:some default}")
+private String someDefault;
+
+
+Injecting a value that is defined as both a system property and in the properties file:
+
+
+@Value("${priority}")
+private String prioritySystemProperty;
+
+
+Injecting multiple values as an array, with the values defined as comma-separated values in the properties file:
+
+
+@Value("${listOfValues}")
+private String[] valuesArray;
+
+
+In Java, DriverManager is a class that manages a list of database drivers. It provides a facility to register and unregister JDBC drivers. JDBC drivers are used by applications to connect to a database. When a new driver is registered with the DriverManager, it is added to the list of drivers that the DriverManager knows about, and it can be used to connect to the database.
+
+DriverManager provides several methods for managing the list of drivers, including:
+
+registerDriver(Driver driver): Registers a new JDBC driver with the DriverManager.
+getDriver(String url): Returns the JDBC driver that can be used to connect to the specified URL.
+getConnection(String url, String user, String password): Returns a connection to the database specified by the URL, username, and password.
+Applications typically use the DriverManager to obtain a connection to a database, using the getConnection() method. The application provides the JDBC URL, username, and password to the getConnection() method, and DriverManager returns a Connection object that can be used to execute SQL statements against the database.
+
